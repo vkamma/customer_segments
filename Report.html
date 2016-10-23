@@ -207,7 +207,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -389,7 +389,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Select three indices of your choice you wish to sample from the dataset</span>
@@ -399,6 +399,8 @@ div#notebook {
 <span class="n">samples</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 <span class="k">print</span> <span class="s2">&quot;Chosen samples of wholesale customers dataset:&quot;</span>
 <span class="n">display</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">samples</span> <span class="o">-</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">samples</span> <span class="o">-</span> <span class="n">data</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">())</span>
 </pre></div>
 
 </div>
@@ -467,6 +469,108 @@ div#notebook {
 
 </div>
 
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fresh</th>
+      <th>Milk</th>
+      <th>Grocery</th>
+      <th>Frozen</th>
+      <th>Detergents_Paper</th>
+      <th>Delicatessen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10615.0</td>
+      <td>-386.0</td>
+      <td>-753.0</td>
+      <td>843.0</td>
+      <td>-1104.0</td>
+      <td>3660.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-6037.0</td>
+      <td>-2148.0</td>
+      <td>-1759.0</td>
+      <td>-2647.0</td>
+      <td>-1165.0</td>
+      <td>-775.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1747.0</td>
+      <td>-4682.0</td>
+      <td>-4130.0</td>
+      <td>-2675.0</td>
+      <td>-1917.0</td>
+      <td>-1113.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fresh</th>
+      <th>Milk</th>
+      <th>Grocery</th>
+      <th>Frozen</th>
+      <th>Detergents_Paper</th>
+      <th>Delicatessen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>14111.0</td>
+      <td>1783.0</td>
+      <td>2442.0</td>
+      <td>2389.0</td>
+      <td>961.0</td>
+      <td>4219.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-2541.0</td>
+      <td>21.0</td>
+      <td>1436.0</td>
+      <td>-1101.0</td>
+      <td>900.0</td>
+      <td>-216.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1749.0</td>
+      <td>-2513.0</td>
+      <td>-935.0</td>
+      <td>-1129.0</td>
+      <td>148.0</td>
+      <td>-554.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -491,7 +595,7 @@ div#notebook {
 <p><strong>Answer:</strong>
 My analysis for the 3 data points:</p>
 <ul>
-<li>Customer 4: We can see that this customer generally spends a high amount in every category listed, particularly on Delicatessen or Deli food compared to most of the customer in the dataset. I would guess that this customer could be a large retailer selling everything related to food.  </li>
+<li>Customer 4: We can see that this customer generally spends a high amount way higher than mean in every category listed, particularly on Delicatessen or Deli food compared to most of the customers in the dataset. I would guess that this customer could be a large retailer selling everything related to food.  </li>
 <li>Customer 8: This customer spends about an average amount on all categories except frozen. This could correspond to an average-sized independent store based in single location selling various kinds of food but having no space/money for huge freezers. More likely a Mom and Pop store.</li>
 <li>Customer 15: This customer has low spendings in all categories but fresh, grocery and detergents &amp; paper in comparision to other customers I guess customer 15 could be a restaurant.</li>
 </ul>
@@ -9726,7 +9830,7 @@ wnMD4CTmMtgAAMBo6AECAABGQwACAABGQwACAABGQwACAABGQwACAABGQwACAABGQwACAABG4/8B
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
 Segment 0 has above-average spendings on Fresh and Frozen, below-average spendings on Milk, Grocery and Detergents &amp; Paper and somewhat average spendings on Delicatessen. This could be a profile of restaurants selling mostly fresh food but also a bit of frozen food as well as Delicatessen.
-Segment 0 has above-average spendings on Milk, Grocery and Detergents &amp; Paper, low spendings on Fresh food and average spendings on Delicatessen. This could be the profile of a retail store.</p>
+Segment 1 has above-average spendings on Milk, Grocery and Detergents &amp; Paper, low spendings on Fresh food and average spendings on Delicatessen. This could be the profile of a retail store.</p>
 
 </div>
 </div>
@@ -9780,9 +9884,9 @@ Sample point 2 predicted to be in Cluster 0
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>Sample point 0: My guess earlier was this would be a large retailer, now it is assigned to the cluster which I consider restaurants. Thus, my prediction was not in line with the clustering.</li>
-<li>Sample point 1: My guess was this would be a small mom-and-pop retail store, now it is assigned to the cluster which I consider to be retail stores. For this data points, my prediction was therefore in line with the clustering.</li>
-<li>Sample point 2: My guess was this would be a restaurant and now it is also assigned to the restaurant cluster. Again, my prediction was in line with the clustering.</li>
+<li>For Sample 0, the values for Fresh food and Deli are above average. My guess earlier was this would be a large retailer, now it is assigned to the cluster which I consider restaurants. Thus, my prediction was not in line with the clustering.</li>
+<li>For Sample 1, the values for Grocery, Milk, &amp; Detergents_Paper are about average. My guess was this would be a small mom-and-pop retail store, now it is assigned to the cluster which I consider to be retail stores. For this data points, my prediction was therefore cosistent with the clustering.</li>
+<li>For Sample 2, the values for Fresh food, Grocery &amp; Detergents_Paper are above average. My guess was this would be a restaurant and now it is also assigned to the restaurant cluster. Again, my prediction was consistent with the clustering.</li>
 </ul>
 
 </div>
@@ -9830,6 +9934,8 @@ I can think of two theories one could have:</p>
 <li>Retail does not like stocks theory: Retailers usually like it a lot to be able to quickly adapt to changing demands and also to minimize inventory to save cost. Thus, they could react negatively to reduced delivery frequency. Restaurants may not be as sensitive to inventory.</li>
 </ul>
 <p>Unfortunately, both theories predict negative effects for one or the other customer segment. Only an A/B test will tell if actually any of the segments will actually not react negative.</p>
+<p>In terms of the question wording, I actually cannot think of a reason why any customer would react positively, since we talk about a reduction of service level with no compensation. If cost saving are transferred (patially) to the customers, they may.</p>
+<p>I would do the A/B test by selecting a random sample from each cluster and reducing the delivery frequency for each of them (and maybe reduce prices a little). Talking to the selected customers after one or two weeks and asking for their happyness will provide a quantitataive score of customer satisfaction. An equally sized control group selected from the remaining customers should also be contacted to get a comparison score.</p>
 
 </div>
 </div>
